@@ -33,15 +33,26 @@ MOSAIC assumes that one deployment ~= one microservice. It discovers your deploy
 
 ## What Will and Won't Go Inside my Cluster?
 
-#### [Frontend](https://github.com/nectar-cs/frontend)
+### [Frontend](https://github.com/nectar-cs/frontend)
 
 The Frontend lives INSIDE your cluster. It's the main thing you interact with. It's a React app. Details [right hurr](https://github.com/nectar-cs/frontend).
 
-#### Kapi
+### Kapi
 
-Kapi (pron '*Kahpee*', short for Kubernetes API), lives INSIDE your cluster. 
+Kapi (pronnounced '*Kahpee*', short for Kubernetes API), lives INSIDE your cluster.  It's the Flask backend the frontend uses to talk to your cluster. We'll be publishing K8Kat - the brains behind MOSAIC - as a standalone library. Details [right thurr](https://github.com/nectar-cs/kapi).
 
-#### Backend
+### Docker inside Docker
+
+The manifest also includes a deployment for the [official Docker image](https://hub.docker.com/_/docker). This is used to build images from your applications' source code (see above). The image is inside a deployment so it is does run all the time. The reason being is speed: if we made one-time every time you needed to build, the docker image cache would get wiped and you'd have to build every build from scratch. 
+
+If you want to get rid of this, the easiest way is through MOSAIC, i.e make a Workspace filtered by namespace = nectar and then scale `dind` down to 0. Else, with kubectl:
+
+```bash
+kubectl scale deploy dind --replicas=0 -n nectar #or more violently
+kubectl delete deploy dind -n nectar #or more violently
+```
+
+### Backend
 
 The backend lives OUTSIDE your cluster. It's on a Nectar-owned server. Here's what it stores:
 
