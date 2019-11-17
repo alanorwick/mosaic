@@ -5,7 +5,7 @@ Nectar MOSAIC does automation, root cause analysis, and education for anybody wh
 
 # Workflow / GitOps
 
-MOSAIC assumes that one deployment ~= one microservice. As such, it starts discovering your deployments and have you **bind** them to their respective **GitHub Repos** and **Docker Image Repos**. 
+MOSAIC assumes that one deployment ~= one microservice. It discovers your deployments and has you **bind** them to their respective **GitHub Repos** and **Docker Image Repos**. With this in place you choose point to deployment, choose a branch/commit, MOSAIC will build an image locally, push it to your image registry, and force the right pods to pull the image.
 
 # Installation
 
