@@ -40,7 +40,8 @@ kubectl expose deployment/frontend --type=LoadBalancer --name=frontend -n nectar
 | --- | --- | --- | --- |
 | **Pods** | CRD | CRUD | *create cURL pods, clean them up after* |
 | **Deployments** | RU | CRUD | *change replica count i.e "scale"*
-| **Services** | R | R | *no touchy* |
+| **Services** | R | R | - |
+| **Events** | R | R | - |
 | * | - | - | - |
 
 You can obviously modify the manifest.yaml with custom perms, but MOSAIC will not fail gracefully if Kubernetes gives it access errors. You also run the risk of giving it more rights than it has now.
