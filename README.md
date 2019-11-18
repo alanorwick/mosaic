@@ -4,12 +4,34 @@ Nectar MOSAIC does automation, root cause analysis, and education for anybody wh
 ![Logo][mosaic-banner]
 
 
+# Overview
+
+MOSAIC is a web app that lives in your Kubernetes cluster. The goal is to make life better for developers of all k8s-skills by:
+- automating onerous commands in common workflows
+- directly and indirectly help troubleshoot common issues 
+- always explaining its work, hopefully teaching you something
+
 # Installation
 
 You know how it goes:
-```
+```bash
 kubectl apply -f https://github.com/nectar-cs/mosaic/tree/master/manifest.yaml
 ```
+
+Access it by portforwarding: 
+
+```bash
+kubectl port-forward 9000:80 svc/frontend -n nectar
+#change 9000 to whatever you want
+```
+
+You can also have the frontend service exposed on public web, but that's always a risk:
+
+```bash
+kubectl delete svc/frontend -n nectar
+kubectl expose deployment/frontend --type=LoadBalancer --name=frontend -n nectar
+```
+
 
 ### Permissions
 
@@ -25,21 +47,27 @@ You can obviously apply your own manifest.yaml with custom perms, but MOSAIC wil
 
 # Workflow / GitOps
 
-MOSAIC assumes that one deployment ~= one microservice. It discovers your deployments and has you **bind** them to their respective **GitHub Repos** and **Docker Image Repos**. With this in place you choose point to deployment, choose a branch/commit, MOSAIC will build an image locally, push it to your image registry, and force the right pods to pull the image.
+MOSAIC assumes that one deployment ~= one microservice. It discovers your deployments and has you **bind** them to their respective **GitHub Repos** and **Docker Image Repos**. 
 
 |  Git and Docker  |  Fast Matching Mode  |
 | --- | --- |
 | ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workflow1.png) | ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workflow-2.png) |
 
+With this in place you can point to a deployment, choose a branch/commit, and MOSAIC will build an image [locally](https://github.com/nectar-cs/mosaic#docker-inside-docker), push it to your image registry, and force the right pods to pull the image.
+
+# Root Cause Analysis
+
+MOSAIC 
+
 ## What Will and Won't Go Inside my Cluster?
 
 ### [Frontend](https://github.com/nectar-cs/frontend)
 
-The Frontend lives INSIDE your cluster. It's the main thing you interact with. It's a React app. Details [right hurr](https://github.com/nectar-cs/frontend).
+The Frontend lives INSIDE your cluster. It's the main thing you interact with. It's a React app. Details [here](https://github.com/nectar-cs/frontend).
 
-### Kapi
+### [Kapi](https://github.com/nectar-cs/kapi)
 
-Kapi (pronnounced '*Kahpee*', short for Kubernetes API), lives INSIDE your cluster.  It's the Flask backend the frontend uses to talk to your cluster. We'll be publishing K8Kat - the brains behind MOSAIC - as a standalone library. Details [right thurr](https://github.com/nectar-cs/kapi).
+Kapi (pronnounced '*Kahpee*', short for Kubernetes API), lives INSIDE your cluster.  It's the Flask backend the frontend uses to talk to your cluster. We'll be publishing K8Kat - the brains behind MOSAIC - as a standalone library. Details [here](https://github.com/nectar-cs/kapi).
 
 ### Docker inside Docker
 
@@ -48,7 +76,7 @@ The manifest also includes a deployment for the [official Docker image](https://
 If you want to get rid of this, the easiest way is through MOSAIC, i.e make a Workspace filtered by namespace = nectar and then scale `dind` down to 0. Else, with kubectl:
 
 ```bash
-kubectl scale deploy dind --replicas=0 -n nectar #or more violently
+kubectl scale deploy dind --replicas=0 -n nectar
 kubectl delete deploy dind -n nectar #or more violently
 ```
 
@@ -63,7 +91,7 @@ The backend lives OUTSIDE your cluster. It's on a Nectar-owned server. Here's wh
 |   **User**  |   email, pw   |   Yes   | 
 |   **Git/Docker Hubs**   |   identifier, token   |   Yes   |
 
-The main reason we use a remote backend is that persistent storage on k8s is still relatively hard, making debugging users' db problems an ops nightmare.
+The main reason we use a remote backend is that persistent storage on k8s is still relatively hard, so dealing with data  problems on individual users' clusters would be a flustercluck an ops nightmare.
 
 There are a trillion things in the pipeline, but if you want a 100% self hosted version, vote here.
 
