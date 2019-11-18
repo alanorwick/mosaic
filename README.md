@@ -6,7 +6,7 @@ Nectar MOSAIC does automation, root cause analysis, and education for anybody wh
 
 # Overview
 
-MOSAIC is a web app that lives in your Kubernetes cluster. The goal is to make life better for developers of all k8s-skills by:
+MOSAIC is a web app that lives in your Kubernetes cluster. The goal is to make life better for developers of all Kubernetes skills who use Kubernetes every day:
 - automating onerous commands in common workflows
 - directly and indirectly help troubleshoot common issues 
 - always explaining its work, hopefully teaching you something
