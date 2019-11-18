@@ -33,7 +33,7 @@ kubectl expose deployment/frontend --type=LoadBalancer --name=frontend -n nectar
 ```
 
 
-### Permissions
+### Default Permissions
 
 
 | Resource / Namespace  | Not Nectar  | Nectar | Comments
@@ -43,7 +43,7 @@ kubectl expose deployment/frontend --type=LoadBalancer --name=frontend -n nectar
 | **Services** | R | R | *no touchy* |
 | * | - | - | - |
 
-You can obviously apply your own manifest.yaml with custom perms, but MOSAIC will not fail gracefully if Kubernetes gives it access errors.
+You can obviously modify the manifest.yaml with custom perms, but MOSAIC will not fail gracefully if Kubernetes gives it access errors. You also run the risk of giving it more rights than it has now.
 
 # Workflow / GitOps
 
