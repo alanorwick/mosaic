@@ -11,6 +11,8 @@ MOSAIC is a web app that lives in your Kubernetes cluster. The goal is to make l
 - directly and indirectly help troubleshoot common issues 
 - always explaining its work, hopefully teaching you something
 
+Visualize does not mean hide. Automate does not mean unlearn.
+
 # Installation
 
 You know how it goes:
