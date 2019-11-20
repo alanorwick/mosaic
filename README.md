@@ -183,4 +183,4 @@ If this gets you excited, if you're feeling crazy, have some water. After that, 
 
 We're looking for engineers who want to create the new standard in container orchestration for the next decade.
 
-Frontend, backend, infra, design, VP Developer Advocacy, and CTO. London, San Francisco, or remote. Big boy equity. [Find out more](https://www.codenectar/werk-werk-werk).
+Frontend, backend, infra, design, VP Developer Advocacy, and CTO. London, San Francisco, or remote. Big boy equity. Drop me a line.
