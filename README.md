@@ -52,9 +52,9 @@ You can obviously modify the manifest.yaml with custom perms, but MOSAIC will no
 
 MOSAIC assumes that one deployment ~= one microservice. It discovers your deployments and has you **bind** them to their respective **GitHub Repos** and **Docker Image Repos**. 
 
-|  Git and Docker  |  Fast Matching Mode  |   App Centric Workspace   | 
+|  Git and Docker  |  Deployment x Docker x Git Matching en Masse  |   App Centric Workspace   | 
 |    ---    |     ---    |   ---    |
-| ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workflow-2.png)    |    ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/image-op-git1.png)    |    ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/home.png)   |
+| ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workflow-2.png)    |    ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workflow1.png)    |    ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/home.png)   |
 
 With this in place you can point to a deployment, choose a branch/commit, and MOSAIC will build an image [locally](https://github.com/nectar-cs/mosaic#docker-inside-docker), push it to your image registry, and force the right pods to pull the image.
 
