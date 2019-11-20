@@ -10,7 +10,7 @@ MOSAIC is a web app made up of [three deployments](https://github.com/nectar-cs/
 
 The MOSAIC alpha is primarily focused on develoment/staging workflows - the phase when you're building confidence in your cluster's behavior before production. MOSAIC is [not a](https://github.com/nectar-cs/mosaic#meta) provisioning tool, [nor is it](https://github.com/nectar-cs/mosaic#meta) a platform. It helps you make fewer mistakes and solve problems faster.
 
-It is designed for devs with intermediate Kubernetes skills whose:
+It is designed for intermediate-level Kubernetes users whose:
 + sub-godly proficiency in the K-verse hinders their total productivity
 + skin crawls when they hear about opaque, lock-in-hungry PaaS'es
 + ears rejoice regarding software that makes K8s friendlier without taking over it
@@ -83,7 +83,7 @@ The Frontend lives INSIDE your cluster. It's the main thing you interact with. I
 
 Kapi (pronnounced '*Kahpee*', short for Kubernetes API), lives INSIDE your cluster.  It's the Flask backend that the frontend uses to talk to your cluster. 
 
-Note that **kapi does not use kubectl** to talk to your cluster; it uses the official python client. All "Game Plan" kubectl commands displayed in the frontend 
+Note that **kapi does not use kubectl** to talk to your cluster; it uses the official python client. 
 
 We'll be publishing [K8Kat](https://github.com/nectar-cs/kapi). - the brains behind MOSAIC - as a standalone library so check that out too.
 
@@ -101,9 +101,9 @@ You can obviously change the manifest.yaml with your custom perms, but MOSAIC wi
 
 ### Docker inside Docker
 
-MOSAIC uses wraps the [official Docker image](https://hub.docker.com/_/docker) inside its own deployment. This is used to build images from your applications' source code (see above). 
+MOSAIC wraps the [official Docker image](https://hub.docker.com/_/docker) inside a deployment. This is used to build images from your applications' source code (see above). 
 
-If you want to get rid of this to cut costs, the easiest way is through MOSAIC, i.e make a Workspace filtered by namespace = nectar and then scale `dind` down to 0. Equivalently, with kubectl:
+If you want to get rid of this to cut costs, the easiest way is to scale it down through MOSAIC's GUI. Equivalently, with kubectl:
 
 ```bash
 kubectl scale deploy dind --replicas=0 -n nectar
@@ -135,9 +135,7 @@ The backend lives OUTSIDE your cluster. It's on a Nectar-owned server. Here's wh
 |   **User**  |   email, pw   |   Yes   | 
 |   **Git/Docker Hubs**   |   identifier, token   |   Yes   |
 
-The main reason we use a remote backend is that persistent storage on k8s is still relatively hard, so dealing with data  problems on individual users' clusters would be a flustercluck an ops nightmare.
-
-There are a trillion things in the pipeline, but if you want a 100% self hosted version, vote here.
+The main reason we use a remote backend is that persistent storage on k8s is still relatively hard, so dealing with data  problems on individual users' clusters would be a flustercluck of an ops nightmare.
 
 # Updating
 
@@ -152,33 +150,23 @@ You'll see this popup quite frquently.
 
 # Meta
 
-
-## WTH is Nectar?
+## What *is* Nectar?
 
 Nectar is the company that makes MOSAIC. We're just out of stealth mode, have recently raised pre-seed, and are now in conversations for seed.
 
-
-### Lil' Mission Statement
-Orchestration today is complex and complicated.
+Kubernetes is both complex and complicated.
 
 Complex is why we love it - it's what makes orchestration powerful - it's inherent.
 
-Complicated is why we rage quit - it's the greatest threat to orchestration's supremacy, but we think it's not inherent.
+Complicated is why we hate it - it's orchestration's greatest weakness - but we believe it's *not* inherent.
 
-That's why Nectar's mission is to make orchestion *orderly*. 
-
-Not less, not easy, not un-complex, just un-complicated.
+That's why **Nectar's mission** is to make orchestion *orderly*.
 
 
 ## Getting involved
 
-If this gets you excited, if you're feeling crazy, have some water. After that, drop me a line at xavier@codenectar.com or xnectar @ kubernetes.slack.com.
+If this gets you excited, if you're feeling crazy, have some water. After that, drop me a line at xavier@codenectar.com or on the K8s slack.
 
-We're looking engineers who want to build the standard in container orchestration for the next decade.
+We're looking for engineers who want to create the new standard in container orchestration for the next decade.
 
 Frontend, backend, infra, design, VP Developer Advocacy, and CTO. London, San Francisco, or remote. Big boy equity. [Find out more](https://www.codenectar/werk-werk-werk).
-
-
-## What's to Come
-
-Orchestrate boldly.
