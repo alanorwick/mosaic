@@ -157,22 +157,22 @@ You'll see this popup quite frquently.
 
 ## What MOSAIC Isn't
 
-**A Provisioning Tool**. "Because what we all really want is to generate YAML with a GUI ;) Although if you think we can do a better job the the programmatic interface around our clusters (kubectl, official libs), check out [K8Kat](https://github.com/nectar-cs/kapi)."
+**A Provisioning Tool**. MOSAIC does no provisioning whatsoever.
 
-**A Platform**. "Because having no control over my infra is exactly why I adopted programmatic infra in the first place ;)"
+**A Platform**. Because we adopted programmatic infra in over to cede control ;)
 
 **A Dashboard**. It is technically a dashboard, but not one that just regurgitates JSON from the API.
 
 
 ## What *is* Nectar?
 
-Nectar is the company that makes MOSAIC. We're just out of stealth mode, have recently raised pre-seed, and are now in conversations for seed.
+Nectar is the company that makes MOSAIC. We're just out of stealth mode, have recently raised pre-seed, and are based in London.
 
 Kubernetes is both complex and complicated.
 
 Complex is why we love it - it's what makes orchestration powerful - it's inherent.
 
-Complicated is why we hate it - it's orchestration's greatest weakness - but we believe it's *not* inherent.
+Complicated is why some hate it - orchestration's greatest weakness - but *we* believe it's *not* inherent.
 
 That's why **Nectar's mission** is to make orchestion *orderly*.
 
