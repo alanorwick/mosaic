@@ -11,8 +11,8 @@ MOSAIC is a web app made up of [three deployments](https://github.com/nectar-cs/
 The MOSAIC alpha is primarily focused on develoment/staging workflows - the phase when you're building confidence in your cluster's behavior before production. MOSAIC is [not a](https://github.com/nectar-cs/mosaic#meta) provisioning tool, [nor is it](https://github.com/nectar-cs/mosaic#meta) a platform. It helps you make fewer mistakes and solve problems faster.
 
 It is designed for intermediate-level Kubernetes users whose:
-+ sub-godly proficiency in the K-verse hinders their total productivity
-+ skin crawl at the thought of opaque, lock-in-hungry PaaS'es
++ sub-godly proficiency in the K-verse slows them down
++ skin crawls at the thought of opaque, lock-in-hungry PaaS'es
 + ears rejoice at the idea of making K8s friendlier without taking over it
 
 In short, MOSAIC is for non-K-gods who want to move faster while retaining their agency over their infra.
