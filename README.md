@@ -8,12 +8,12 @@ Nectar MOSAIC is a copilot Kubernetes users. It automates workflows, helps with 
 
 MOSAIC is a web app made up of [three deployments](https://github.com/nectar-cs/mosaic#what-will-and-wont-go-inside-my-cluster) that live in your Kubernetes cluster. 
 
-The MOSAIC alpha is primarily focused on develoment/staging workflows - the phase when you're building confidence in your cluster's behavior before production. MOSAIC is [not a](https://github.com/nectar-cs/mosaic#meta) provisioning tool, [nor is it](https://github.com/nectar-cs/mosaic#meta) a platform. It helps you make fewer mistakes and solve problems faster.
+The MOSAIC alpha is primarily focused on develoment/staging workflows - the phase when you're building confidence in your cluster's behavior before production. MOSAIC is not a provisioning tool, nor is it a platform. It helps you make fewer mistakes and solve problems faster.
 
 It is designed for intermediate-level Kubernetes users whose:
 + sub-godly proficiency in the K-verse slows them down
 + skin crawls at the thought of opaque, lock-in-hungry PaaS'es
-+ ears rejoice at the idea of making K8s friendlier without taking over it
++ ears are open at the idea of making K8s friendlier without taking over it
 
 In short, MOSAIC is for non-K-gods who want to move faster while retaining their agency over their infra.
 
@@ -153,16 +153,8 @@ You'll see this popup quite frquently.
 [nectar-logo]: https://storage.googleapis.com/nectar-mosaic-public/images/nectar-tomato.png "Nectar"
 [mosaic-banner]: https://storage.googleapis.com/nectar-mosaic-public/images/into-the-k8set.png "Mosaic"
 
+
 # Meta
-
-## What MOSAIC Isn't
-
-**A Provisioning Tool**. MOSAIC does no provisioning whatsoever.
-
-**A Platform**. Because we adopted programmatic infra in over to cede control ;)
-
-**A Dashboard**. It is technically a dashboard, but not one that just regurgitates JSON from the API.
-
 
 ## What *is* Nectar?
 
