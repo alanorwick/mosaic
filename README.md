@@ -12,10 +12,10 @@ The MOSAIC alpha is primarily focused on develoment/staging workflows - the phas
 
 It is designed for intermediate-level Kubernetes users whose:
 + sub-godly proficiency in the K-verse hinders their total productivity
-+ skin crawls when they hear about opaque, lock-in-hungry PaaS'es
-+ ears rejoice regarding software that makes K8s friendlier without taking over it
++ skin crawl at the thought of opaque, lock-in-hungry PaaS'es
++ ears rejoice at the idea of making K8s friendlier without taking over it
 
-In short, MOSAIC is for non-K-gods who want to move faster while their retaining agency over their infra.
+In short, MOSAIC is for non-K-gods who want to move faster while retaining their agency over their infra.
 
 
 # Installation
@@ -73,7 +73,7 @@ In just about every feature in MOSAIC, if there's an interaction with Kubernetes
 
 
 
-## What Will and Won't Go Inside my Cluster?
+# What's Inside/Outside my Cluster?
 
 ### [Frontend](https://github.com/nectar-cs/frontend)
 
