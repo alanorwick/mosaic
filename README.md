@@ -40,11 +40,14 @@ MOSAIC's world view is that one deployment ~= one microservice. During setup, it
 |    ---    |     ---    |   ---    |
 | ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workflow-2.png)    |    ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workflow1.png)    |    ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/home.png)   |
 
+
+
 With this in place you can point to a deployment, choose a branch/commit, and MOSAIC build an image from source, push it to your image registry, and force the right pods to pull the image (this all takes place in your cluster).
 
 |   Choose a Branch/Commit   |   Watch it build locally   |    See Git Commit   |
 |   ---   |    ---   |    ---   |
 | ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/image-op-git-1.png)    |    ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/image-op-git-2.png)    |    ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/commit.png)   |
+
 
 We think that solidifying the bond between source, container, and K8s is a powerful idea, and we'll be rolling out features that exploit the bindings more deeply.
 
@@ -55,6 +58,8 @@ Understanding why something doesn't work in Kubernetes is a skill in and of itse
 |  Network Debug Wizard  |  Pod Status/Event Meaning    |
 |    ---     |     ---    |
 | ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/net-debug.png)    |    ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/pod-timeline.png)   |
+
+
 
 MOSAIC also speeds up onerous tasks key to introspection such as creating one time pods to cURL your services, sending quick shell commands, force-pulling images, and checking logs. 
 
@@ -149,6 +154,15 @@ You'll see this popup quite frquently.
 [mosaic-banner]: https://storage.googleapis.com/nectar-mosaic-public/images/into-the-k8set.png "Mosaic"
 
 # Meta
+
+## What MOSAIC Isn't
+
+**A Provisioning Tool**. "Because what we all really want is to generate YAML with a GUI ;) Although if you think we can do a better job the the programmatic interface around our clusters (kubectl, official libs), check out [K8Kat](https://github.com/nectar-cs/kapi)."
+
+**A Platform**. "Because having no control over my infra is exactly why I adopted programmatic infra in the first place ;)"
+
+**A Dashboard**. It is technically a dashboard, but not one that just regurgitates JSON from the API.
+
 
 ## What *is* Nectar?
 
