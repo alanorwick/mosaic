@@ -52,15 +52,33 @@ You can obviously modify the manifest.yaml with custom perms, but MOSAIC will no
 
 MOSAIC assumes that one deployment ~= one microservice. It discovers your deployments and has you **bind** them to their respective **GitHub Repos** and **Docker Image Repos**. 
 
-|  Git and Docker  |  Fast Matching Mode  |
-| --- | --- |
-| ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workflow1.png) | ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workflow-2.png) |
+|  Git and Docker  |  Fast Matching Mode  |   App Centric Workspace   | 
+|    ---    |     ---    |   ---    |
+| ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workflow-2.png) | ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workflow1.png) |
+![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/home.png)
 
 With this in place you can point to a deployment, choose a branch/commit, and MOSAIC will build an image [locally](https://github.com/nectar-cs/mosaic#docker-inside-docker), push it to your image registry, and force the right pods to pull the image.
 
+|   Choose a Branch/Commit   |   Watch it build locally   |    See Git Commit   |
+|   ---   |    ---   |    ---   |
+| ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/image-op-git-1.png) | ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/image-op-git-2.png) | ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/commit.png)
+
+
 # Root Cause Analysis
 
-MOSAIC 
+Understanding why something doesn't work in Kubernetes is a skill in and of itself. MOSAIC proposes a set of features to assist in uncovering the roots of problems.
+
+|  Pod Status/Event Meaning  |  Auto Network Failure Debugging  |
+|    ---     |     ---    |
+| ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/net-debug.png) | ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/pod-timeline.png) |
+
+MOSAIC also speeds up onerous tasks key to introspection like cURLing HTTP requests from one-time pods, sending quick shell commands, force-pulling images, and checking logs. 
+
+|  HTTP Out  |  Shell cmd Out  | Force pull | Logs
+|    ---    |    ---    |     ---    |     ---    |
+| ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/http-op.png) | ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/cmd.png) |
+![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/force-pull.png) | ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/logs.png) |
+
 
 ## What Will and Won't Go Inside my Cluster?
 
