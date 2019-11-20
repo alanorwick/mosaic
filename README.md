@@ -28,7 +28,7 @@ kubectl apply -f https://github.com/nectar-cs/mosaic/tree/master/manifest.yaml
 Access it by portforwarding: 
 
 ```shell
-kubectl port-forward 9000:80 svc/frontend -n nectar
+kubectl port-forward svc/frontend -n nectar 9000:80
 #change 9000 to whatever you want
 ```
 
