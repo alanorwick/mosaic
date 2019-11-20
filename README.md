@@ -1,5 +1,5 @@
 # Nectar MOSAIC
-Nectar MOSAIC is a copilot for use developers who use Kubernetes. It automates workflows, helps with root cause analyses, and always explains how and why it does things, so you get better at Kubernetes too.
+Nectar MOSAIC is a copilot for developers who use Kubernetes. It automates workflows, helps with root cause analyses, and always explains how and why it does things.
 
 ![Logo][mosaic-banner]
 
@@ -8,12 +8,12 @@ Nectar MOSAIC is a copilot for use developers who use Kubernetes. It automates w
 
 MOSAIC is a web app made up of [three deployments](https://github.com/nectar-cs/mosaic#what-will-and-wont-go-inside-my-cluster) that live in your Kubernetes cluster. 
 
-This MOSAIC alpha is primarily focused on develoment/staging workflows - the phase when you're trying to gain confidence in your cluster's behavior before production. MOSAIC is [not a](https://github.com/nectar-cs/mosaic#meta) provisioning tool, [nor is it](https://github.com/nectar-cs/mosaic#meta) a platform. It helps you make fewer mistakes and solve problems faster.
+The MOSAIC alpha is primarily focused on develoment/staging workflows - the phase when you're building confidence in your cluster's behavior before production. MOSAIC is [not a](https://github.com/nectar-cs/mosaic#meta) provisioning tool, [nor is it](https://github.com/nectar-cs/mosaic#meta) a platform. It helps you make fewer mistakes and solve problems faster.
 
 It is designed for devs with intermediate Kubernetes skills whose:
 + sub-godly proficiency in the K-verse hinders their total productivity
 + skin crawls when they hear about opaque, lock-in-hungry PaaS'es
-+ ears rejoice regarding software that make K8s friendlier without taking over it
++ ears rejoice regarding software that makes K8s friendlier without taking over it
 
 In short, MOSAIC is for non-K-gods who want to move faster while their retaining agency over their infra.
 
@@ -40,13 +40,13 @@ MOSAIC's world view is that one deployment ~= one microservice. During setup, it
 |    ---    |     ---    |   ---    |
 | ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workflow-2.png)    |    ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workflow1.png)    |    ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/home.png)   |
 
-With this in place you can point to a deployment, choose a branch/commit, and MOSAIC will build an image [locally](https://github.com/nectar-cs/mosaic#docker-inside-docker), push it to your image registry, and force the right pods to pull the image.
+With this in place you can point to a deployment, choose a branch/commit, and MOSAIC build an image from source, push it to your image registry, and force the right pods to pull the image (this all takes place in your cluster).
 
 |   Choose a Branch/Commit   |   Watch it build locally   |    See Git Commit   |
 |   ---   |    ---   |    ---   |
 | ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/image-op-git-1.png)    |    ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/image-op-git-2.png)    |    ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/commit.png)   |
 
-We think that solidifying the bond between source, container, and K8s is a powerful idea, and we'll be rolling out features that exploit the bindings we're created more deeply.
+We think that solidifying the bond between source, container, and K8s is a powerful idea, and we'll be rolling out features that exploit the bindings more deeply.
 
 # Root Cause Analysis
 
@@ -65,7 +65,7 @@ MOSAIC also speeds up onerous tasks key to introspection such as creating one ti
 
 # Education
 
-While MOSAIC is *not* a 'learn K8s' tool, it does try to make its user better at Kubernetes. We go about this by *involving* the user in every action and decision taken by the software.
+MOSAIC is *not* a 'learn K8s' tool, but it does try to make its user better at Kubernetes. We go about this by *involving* the user in every action and decision taken by the software.
 
 In the Network Debug Wizard for example, even though MOSAIC is driving the bus, tells you *why* it's running this test, and even suggests reading material at the end.
 
@@ -77,7 +77,7 @@ In just about every feature in MOSAIC, if there's an interaction with Kubernetes
 
 ### [Frontend](https://github.com/nectar-cs/frontend)
 
-The Frontend lives INSIDE your cluster. It's the main thing you interact with. It's a React app. Details [here](https://github.com/nectar-cs/frontend).
+The Frontend lives INSIDE your cluster. It's the main thing you interact with. It's a React app. Details [here](https://github.com/nectar-cs/frontend). It just runs in your browser and has zero direct contact with your infrastructure, and hence no permissions at all.
 
 ### [Kapi](https://github.com/nectar-cs/kapi)
 
@@ -103,14 +103,26 @@ You can obviously change the manifest.yaml with your custom perms, but MOSAIC wi
 
 MOSAIC uses wraps the [official Docker image](https://hub.docker.com/_/docker) inside its own deployment. This is used to build images from your applications' source code (see above). 
 
-If you want to get rid of this to cut costs, the easiest way is through MOSAIC, i.e make a Workspace filtered by namespace = nectar and then scale `dind` down to 0. Else, with kubectl:
+If you want to get rid of this to cut costs, the easiest way is through MOSAIC, i.e make a Workspace filtered by namespace = nectar and then scale `dind` down to 0. Equivalently, with kubectl:
 
 ```bash
 kubectl scale deploy dind --replicas=0 -n nectar
 kubectl delete deploy dind -n nectar #or more violently
 ```
 
-Note that if you delete it, MOSAIC will not understand that the deployment is missing, and will crash when you ask it to build a Git commit.
+Note that this deployment gives its container root access: 
+```yaml
+      containers:
+        - name: dind
+          image: docker:18.05-dind
+          securityContext:
+            privileged: true
+          volumeMounts:
+            - name: dind-storage
+              mountPath: /var/lib/docker
+```
+
+Far from ideal, but I couldn't find another way. If you know how to get Docker running in your cluster without this, let me know (xavier@codenectar.com).
 
 ### Backend
 
@@ -131,7 +143,7 @@ There are a trillion things in the pipeline, but if you want a 100% self hosted 
 
 MOSAIC has a built-in self-update mechanism. When an update is available, a popup will show that lets you one-click update.
 
-You'll see this pretty often (assuming there are fires to fight during the alpha).
+You'll see this popup quite frquently.
 
 ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/sw-update.png)
 
@@ -140,14 +152,33 @@ You'll see this pretty often (assuming there are fires to fight during the alpha
 
 # Meta
 
-# Getting involved
 
-If you this gets you excited, if you're feeling crazy right now, first hydrate yourself, do not attempt to drive. After that though, drop me a line at xavier@codenectar.com.
+## WTH is Nectar?
 
-
-
-### Wth is Nectar?
+Nectar is the company that makes MOSAIC. We're just out of stealth mode, have recently raised pre-seed, and are now in conversations for seed.
 
 
+### Lil' Mission Statement
+Orchestration today is complex and complicated.
 
-# What's to Come
+Complex is why we love it - it's what makes orchestration powerful - it's inherent.
+
+Complicated is why we rage quit - it's the greatest threat to orchestration's supremacy, but we think it's not inherent.
+
+That's why Nectar's mission is to make orchestion *orderly*. 
+
+Not less, not easy, not un-complex, just un-complicated.
+
+
+## Getting involved
+
+If this gets you excited, if you're feeling crazy, have some water. After that, drop me a line at xavier@codenectar.com or xnectar @ kubernetes.slack.com.
+
+We're looking engineers who want to build the standard in container orchestration for the next decade.
+
+Frontend, backend, infra, design, VP Developer Advocacy, and CTO. London, San Francisco, or remote. Big boy equity. [Find out more](https://www.codenectar/werk-werk-werk).
+
+
+## What's to Come
+
+Orchestrate boldly.
