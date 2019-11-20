@@ -8,10 +8,6 @@ Nectar MOSAIC is a copilot Kubernetes users. It automates workflows, helps with 
 
 MOSAIC is a web app made up of [three deployments](https://github.com/nectar-cs/mosaic#what-will-and-wont-go-inside-my-cluster) that live in your Kubernetes cluster. 
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=yCMcbTzc8dE
-" target="_blank"><img src="http://img.youtube.com/vi/yCMcbTzc8dE/0.jpg" 
-alt="Git Quickie" width="240" height="180" border="10" /></a>
-
 The MOSAIC alpha is primarily focused on develoment/staging workflows - the phase when you're building confidence in your cluster's behavior before production. MOSAIC is not a provisioning tool, nor is it a platform. It helps you make fewer mistakes and solve problems faster.
 
 It is designed for intermediate-level Kubernetes users whose:
