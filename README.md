@@ -36,6 +36,8 @@ Find out more about the persmissions used [here](https://github.com/nectar-cs/mo
 
 ```shell
 kubectl delete ns/nectar
+kubectl delete clusterrole/nectar-cluster-wide-role
+kubectl delete clusterrolebinding/nectar-permissions
 ```
 
 # Workflow / GitOps
