@@ -95,7 +95,7 @@ Note that **kapi does not use kubectl** to talk to your cluster; it uses the off
 We'll be publishing [K8Kat](https://github.com/nectar-cs/kapi). - the brains behind MOSAIC - as a standalone library so check that out too.
 
 #### Default Permissions
-Kapi authenticates itself using a `ServiceAccount` bundled in the [manifest](https://github.com/nectar-cs/mosaic/blob/master/manifest.yaml) named `nectar`  (`kubectl get sa/nectar`). The `ClusterRoleBinding` also in the manifest gives Kapi the following permissions:
+Kapi authenticates itself using a `ServiceAccount` bundled in the [manifest](https://github.com/nectar-cs/mosaic/blob/master/manifest.yaml) named `nectar` and authorizes itself via RBAC. Look through `ClusterRoleBinding` in the manifest (as you always should when putting foreign software in your cluster!); here's the simplified version:
 
 | Resource / Namespace  | Not Nectar  | Nectar | Comments
 | --- | --- | --- | --- |
