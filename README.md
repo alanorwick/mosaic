@@ -32,6 +32,8 @@ kubectl port-forward svc/frontend -n nectar 9000:80
 #change 9000 to whatever you want
 ```
 
+Find out more about the persmissions used [here](https://github.com/nectar-cs/mosaic/blob/master/README.md#default-permissions).
+
 # Workflow / GitOps
 
 MOSAIC's world view is that one deployment ~= one microservice. During setup, it discovers your deployments and has you **bind** them to their respective **GitHub Repos** and **Docker Image Repos**. 
@@ -99,6 +101,7 @@ Kapi authenticates itself using a `ServiceAccount` bundled in the [manifest](htt
 | --- | --- | --- | --- |
 | **Pods** | CRD | CRUD | *create cURL pods, create Docker build pods, delete for cleanup* |
 | **Deployments** | RU | CRUD | *change replica count i.e "scale"*
+| **Namespaces** | R | CRU | *for creating the initial nectar ns*
 | **Services, Events, Endpoints** | R | R |  general display, network root cause analysis, etc... |
 
 You can obviously change the manifest.yaml with your custom perms, but MOSAIC will not fail gracefully it can't do things the default perms let it. You also run the risk of giving it more rights than it has now.
