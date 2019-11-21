@@ -23,6 +23,19 @@ In short, MOSAIC is for non-K-gods who want to move faster while retaining their
 You know how it goes:
 ```shell
 kubectl apply -f https://github.com/nectar-cs/mosaic/tree/master/manifest.yaml
+
+## expect to see ==>
+
+namespace/nectar created
+serviceaccount/nectar created
+clusterrole.rbac.authorization.k8s.io/nectar-cluster-wide-role created
+clusterrolebinding.rbac.authorization.k8s.io/nectar-permissions created
+deployment.apps/kapi created
+service/kapi created
+deployment.apps/dind created
+service/dind created
+deployment.apps/frontend created
+service/frontend created
 ```
 
 Access it by portforwarding: 
@@ -39,6 +52,8 @@ kubectl delete ns/nectar
 kubectl delete clusterrole/nectar-cluster-wide-role
 kubectl delete clusterrolebinding/nectar-permissions
 ```
+
+Note that none of the deps use resource limits at the moment. I'm waiting for some community feedback before settling on those.
 
 # Workflow / GitOps
 
