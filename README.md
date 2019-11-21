@@ -186,6 +186,6 @@ That's why **Nectar's mission** is to make orchestion *orderly*.
 
 If this gets you excited, if you're feeling crazy, have some water. After that, drop me a line at xavier@codenectar.com or on the K8s slack.
 
-We're looking for engineers who want to create the new standard in container orchestration for the next decade.
+We're looking for cream of the crop engineers who want to create the new standard in container orchestration for the next decade.
 
-Frontend, backend, infra, design, VP Developer Advocacy, and CTO. London, San Francisco, or remote. Big boy equity. Drop me a line.
+Frontend, backend, infra, design, VP Developer Advocacy, and CTO. London, San Francisco, or remote. Drop me a line.
