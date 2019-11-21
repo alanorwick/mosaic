@@ -24,7 +24,7 @@ It is designed for intermediate-level Kubernetes users:
 
 As usual:
 ```shell
-kubectl apply -f https://github.com/nectar-cs/mosaic/tree/master/manifest.yaml
+kubectl apply -f https://raw.githubusercontent.com/nectar-cs/mosaic/master/manifest.yaml
 ```
 
 Port Forward: 
