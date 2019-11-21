@@ -10,12 +10,10 @@ MOSAIC is a web app made up of [three deployments](https://github.com/nectar-cs/
 
 The MOSAIC alpha is primarily focused on develoment/staging workflows - the phase when you're building confidence in your cluster's behavior before production. MOSAIC is not a provisioning tool, nor is it a platform. It helps you make fewer mistakes and solve problems faster.
 
-It is designed for intermediate-level Kubernetes users whose:
-+ sub-godly proficiency in the K-verse slows them down
-+ skin crawls at the thought of opaque, lock-in-hungry PaaS'es
-+ ears are open at the idea of making K8s friendlier without taking over it
-
-In short, MOSAIC is for non-K-gods who want to move faster while retaining their agency over their infra.
+It is designed for intermediate-level Kubernetes users:
++ whose sub-godly proficiency in the K-verse slows them down
++ who dread opaque, lock-in-hungry, buzz-killing PaaS'es
++ who keep it programmatic but are open visual sidekicks when legitimate   
 
 
 # Installation
@@ -43,6 +41,8 @@ kubectl delete clusterrolebinding/nectar-permissions
 ```
 
 Note that none of the deps use resource limits at the moment. I'm waiting for some community feedback before settling on those.
+
+Finally, keep in mind that **MOSAIC is still in alpha** so there will be bugs.   
 
 # Workflow / GitOps
 
@@ -171,20 +171,18 @@ You'll see this popup quite frquently.
 
 ## What *is* Nectar?
 
-Nectar is the company that makes MOSAIC. We're just out of stealth mode, have recently raised pre-seed, and are based in London.
+Nectar is the company that makes MOSAIC. We're just out of stealth mode, 
+have raised pre-seed, are raising seed now, and are based in London.
 
-Kubernetes is both complex and complicated.
+You just installed foreign software into your cluster to enhance it. We want to make that the norm, because that's how we think tomorrows's systems will be built: out of other sub systems.
 
-Complex is why we love it - it's what makes orchestration powerful - it's inherent.
+But how can we trust the systems we integrate if they're so opaque? Our first step is to bring transparency to the cloud native executables (YAML + images). MOSAIC is the first page in that chapter.
 
-Complicated is why some hate it - orchestration's greatest weakness - but *we* believe it's *not* inherent.
-
-That's why **Nectar's mission** is to make orchestion *orderly*.
-
+Ultimately, our vision is to become the new hub, the new clearing house for cloud native executables.
 
 ## Getting involved
 
-If this gets you excited, if you're feeling crazy, have some water. After that, drop me a line at xavier@codenectar.com or on the K8s slack.
+If this gets you excited, if you're feeling crazy, have some water. After that, drop me a line at [xavier@codenectar.com](mailto:xavier@codenectar.com) or on the K8s slack.
 
 We're looking for cream of the crop engineers who want to create the new standard in container orchestration for the next decade.
 
