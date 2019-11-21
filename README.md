@@ -20,16 +20,16 @@ In short, MOSAIC is for non-K-gods who want to move faster while retaining their
 
 # Installation
 
-You know how it goes:
+As usual:
 ```shell
 kubectl apply -f https://github.com/nectar-cs/mosaic/tree/master/manifest.yaml
 ```
 
-Access it by portforwarding: 
+Port Forward: 
 
 ```shell
-kubectl port-forward svc/frontend -n nectar 9000:80
-#change 9000 to whatever you want
+kubectl port-forward svc/frontend -n nectar 9000:80 #9000 or anything else
+kubectl port-forward svc/kapi -n nectar 5000:5000 #must be 5000
 ```
 
 Find out more about the persmissions used [here](https://github.com/nectar-cs/mosaic/blob/master/README.md#default-permissions). All the MOSAIC resources you created with the `apply` command above are in the `nectar` namespace. 
