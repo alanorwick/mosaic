@@ -17,7 +17,7 @@ The MOSAIC alpha is primarily focused on develoment/staging workflows - the phas
 It is designed for intermediate-level Kubernetes users:
 + whose sub-godly proficiency in the K-verse slows them down
 + who dread opaque, lock-in-hungry, buzz-killing PaaS'es
-+ who keep it programmatic but are open visual sidekicks when legitimate   
++ who keep it programmatic but are open to visual sidekicks when legitimate   
 
 
 # Installation
