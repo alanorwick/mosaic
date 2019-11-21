@@ -90,7 +90,7 @@ In just about every feature in MOSAIC, if there's an interaction with Kubernetes
 
 
 
-# What's Inside/Outside my Cluster?
+# What Goes Inside/Outside my Cluster?
 
 ### [Frontend](https://github.com/nectar-cs/frontend)
 
