@@ -23,19 +23,6 @@ In short, MOSAIC is for non-K-gods who want to move faster while retaining their
 You know how it goes:
 ```shell
 kubectl apply -f https://github.com/nectar-cs/mosaic/tree/master/manifest.yaml
-
-## expect to see ==>
-
-namespace/nectar created
-serviceaccount/nectar created
-clusterrole.rbac.authorization.k8s.io/nectar-cluster-wide-role created
-clusterrolebinding.rbac.authorization.k8s.io/nectar-permissions created
-deployment.apps/kapi created
-service/kapi created
-deployment.apps/dind created
-service/dind created
-deployment.apps/frontend created
-service/frontend created
 ```
 
 Access it by portforwarding: 
@@ -45,7 +32,9 @@ kubectl port-forward svc/frontend -n nectar 9000:80
 #change 9000 to whatever you want
 ```
 
-Find out more about the persmissions used [here](https://github.com/nectar-cs/mosaic/blob/master/README.md#default-permissions). All the MOSAIC resources you created with the `apply` command above are in the `nectar` namespace. **To uninstall MOSAIC**, run 
+Find out more about the persmissions used [here](https://github.com/nectar-cs/mosaic/blob/master/README.md#default-permissions). All the MOSAIC resources you created with the `apply` command above are in the `nectar` namespace. 
+
+**To uninstall MOSAIC**, run 
 
 ```shell
 kubectl delete ns/nectar
