@@ -175,14 +175,11 @@ You'll see this popup quite frquently.
 
 ## What *is* Nectar?
 
-Nectar is the company that makes MOSAIC. We're just out of stealth mode, 
-have raised pre-seed, are raising seed now, and are based in London.
+Nectar is the company that makes MOSAIC. We're just out of stealth mode, have raised pre-seed, are raising seed now, and are based in London.
 
-You just installed foreign software into your cluster to enhance it. We want to make that the norm, because that's how we think tomorrows's systems will be built: out of other sub systems.
+You just installed foreign software into your cluster in order to enhance it. That's how we think tomorrows's systems will be built: by combining foreign sub systems, made of cloud native bundles (YAMLs + images, i.e K8s).
 
-But how can we trust the systems we integrate if they're so opaque? Our first step is to bring transparency to the cloud native executables (YAML + images). MOSAIC is the first page in that chapter.
-
-Ultimately, our vision is to become the new hub, the new clearing house for cloud native executables.
+The first step in that vision is to crack true introspection cloud native bundles. So we can know and trust each other's. What's it running? How much will it cost to run? Who does it talk? MOSAIC is a first step in that direction.
 
 ## Getting involved
 
