@@ -179,7 +179,7 @@ Nectar is the company that makes MOSAIC. We're just out of stealth mode, have ra
 
 You just installed foreign software into your cluster in order to enhance it. That's how we think tomorrows's systems will be built: by combining foreign sub systems, made of cloud native bundles (YAMLs + images, i.e K8s).
 
-The first step in that vision is to bring true introspection to cloud native bundles. So we can know and trust what what we install. What's it running? How much will it cost to run? Who does it talk? MOSAIC is a first step in that direction.
+The first step in that vision is to bring true introspection to cloud native bundles. So we can know and trust what we install. What's running inside? How much will it cost to host? Who connections is it making? MOSAIC is a first step in that direction.
 
 ## Getting involved
 
