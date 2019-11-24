@@ -34,7 +34,7 @@ kubectl port-forward svc/frontend -n nectar 9000:80 #9000 or anything else
 kubectl port-forward svc/kapi -n nectar 5000:5000 #must be 5000
 ```
 
-Find out more about the persmissions used [here](https://github.com/nectar-cs/mosaic/blob/master/README.md#default-permissions). All the MOSAIC resources you created with the `apply` command above are in the `nectar` namespace. 
+Find out more about the permissions used [here](https://github.com/nectar-cs/mosaic/blob/master/README.md#default-permissions). All the MOSAIC resources you created with the `apply` command above are in the `nectar` namespace. 
 
 **To uninstall MOSAIC**, run 
 
