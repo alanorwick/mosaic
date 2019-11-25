@@ -1,5 +1,5 @@
 # Nectar MOSAIC
-Nectar MOSAIC is a copilot Kubernetes users. It automates workflows, helps with root cause analyses, and always explains how and why it does things. For pure CLI-ers, there's [K8Kat](https://github.com/nectar-cs/kapi), the brain behind this.
+Nectar MOSAIC is a copilot for Kubernetes users. It automates workflows, helps with root cause analyses, and always explains how and why it does things. For pure CLI-ers, there's [K8Kat](https://github.com/nectar-cs/kapi), the brain behind this.
 
 ![Logo][mosaic-banner]
 
