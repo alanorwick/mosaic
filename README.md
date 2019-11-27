@@ -97,9 +97,9 @@ That's why MOSAIC lets you bind any deployment in your cluster its corresponding
 
 ![bulk-matching]
 
-![prepare-docker-build]
-
 This is thanks to the GitHub and DockerHub integrations MOSAIC lets you do. (Bitbucket and friends coming soon).
+
+![integrations]
 
 ### GitOps
 
@@ -107,7 +107,11 @@ You can even tell MOSAIC to clone a repo, build an image, push it, and restart t
 There are no triggers, as the point is to facilitate development workflows, but this is something
 we can work on if the demand is there.
 
-![integrations]
+![prepare-docker-build]
+
+MOSAIC usses a deployment that runs a Docker image of Docker to build and push your deploymnent. 
+
+[run-docker-build]
 
 #### Customizable Workspaces 
 
@@ -250,6 +254,7 @@ bring transparency to the cloud native executables (YAML + images). MOSAIC is th
 [home]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/home.png
 
 [prepare-docker-build]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/image-op-git-1.png
+[run-docker-build]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/image-op-git-2.png
 [integrations]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/integrations.png
 [workspace-edit]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workspace-edit.png
 [cmd]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/cmd.png
