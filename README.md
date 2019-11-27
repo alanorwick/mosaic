@@ -111,7 +111,7 @@ we can work on if the demand is there.
 
 MOSAIC usses a deployment that runs a Docker image of Docker to build and push your deploymnent. 
 
-[run-docker-build]
+![run-docker-build]
 
 #### Customizable Workspaces 
 
