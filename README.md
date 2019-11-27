@@ -1,38 +1,44 @@
-# Nectar MOSAIC
-Nectar MOSAIC is a copilot Kubernetes users. It automates workflows, helps with root cause analyses, and always explains how and why it does things.
+# MOSAIC
+
+MOSAIC is built on three beliefs:
++ Help without explanation builds dependence, not empowerment.
++ Memorizing the complicated is worth little; understanding the complex is worth a lot.
++ Visualizing is organizing, representing is conveying. All good things. 
 
 ![Logo][mosaic-banner]
 
-
 # Overview
 
-MOSAIC is a web app made up of [three deployments](https://github.com/nectar-cs/mosaic#what-will-and-wont-go-inside-my-cluster) that live in your Kubernetes cluster. 
+MOSAIC complements the developer's toolkit by helping us:
++ Perform root cause analysis on the many things that can go wrong in a cluster
++ Logically structure the the web of K8s resources, to make it surfable
++ Automate repetitive or unmemorizable `kubectl/git/docker` chores
++ Understand the *how* and *why*s in Kubernetes without pausing the game
 
-The MOSAIC alpha is primarily focused on develoment/staging workflows - the phase when you're building confidence in your cluster's behavior before production. MOSAIC is not a provisioning tool, nor is it a platform. It helps you make fewer mistakes and solve problems faster.
+<p align="center">
+  <img src='https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/git-quickie.gif'/>
+</p>
 
-It is designed for intermediate-level Kubernetes users:
-+ whose sub-godly proficiency in the K-verse slows them down
-+ who dread opaque, lock-in-hungry, buzz-killing PaaS'es
-+ who keep it programmatic but are open visual sidekicks when legitimate   
+You interact with MOSAIC through a web app that runs in your browser. The software is made of 
+[three deployments](https://github.com/nectar-cs/mosaic#what-will-and-wont-go-inside-my-cluster) 
+that live in your Kubernetes cluster.  You will also be able to interact with [K8Kat](https://github.com/nectar-cs/kapi) - the brain behind MOSAIC - as a CLI. 
 
+Note that several features are missing as this is still an alpha.   
 
 # Installation
 
-As usual:
+**Install, portforward, open**:
 ```shell
-kubectl apply -f https://github.com/nectar-cs/mosaic/tree/master/manifest.yaml
+kubectl apply -f https://raw.githubusercontent.com/nectar-cs/mosaic/master/manifest.yaml
+kubectl port-forward svc/frontend -n nectar 9000:80
+kubectl port-forward svc/kapi -n nectar 5000:5000
+#visit
+http://localhost:9000
 ```
 
-Port Forward: 
+Read about the permissions used [here](https://github.com/nectar-cs/mosaic/blob/master/README.md#default-permissions). All the MOSAIC resources you created with the `apply` command above are in the `nectar` namespace. 
 
-```shell
-kubectl port-forward svc/frontend -n nectar 9000:80 #9000 or anything else
-kubectl port-forward svc/kapi -n nectar 5000:5000 #must be 5000
-```
-
-Find out more about the persmissions used [here](https://github.com/nectar-cs/mosaic/blob/master/README.md#default-permissions). All the MOSAIC resources you created with the `apply` command above are in the `nectar` namespace. 
-
-**To uninstall MOSAIC**, run 
+**To uninstall** 
 
 ```shell
 kubectl delete ns/nectar
@@ -44,11 +50,36 @@ Note that none of the deps use resource limits at the moment. I'm waiting for so
 
 Finally, keep in mind that **MOSAIC is still in alpha** so there will be bugs.   
 
-# Workflow / GitOps
+# Root Cause Analysis
+
+### Decision Tree Diagnosis
+
+For common problems like services not connecting, pods not being created, permissions, MOSAIC 
+has built-for-purpose wizards that diagnose the issue while showing you exactly why/how it's operating.
+
+![decision-tree]
+
+It also extracts information from the API to turn your attention towards likely problems.
+
+![pod-timeline]
+
+### Visualizing 
+
+# Resource Surfing
+
+# Workflow
+
+#### Customizable Workspaces 
+
+|    |    |    | 
+|    ---    |     ---    |   ---    |
+| ![bind-git-and-docker]    |    ![bulk-matching]    |    ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/home.png)   |
+
+#### App-Centric Workbench
 
 MOSAIC's world view is that one deployment ~= one microservice. During setup, it discovers your deployments and has you **bind** them to their respective **GitHub Repos** and **Docker Image Repos**. 
 
-|  Git and Docker  |  Deployment x Docker x Git Matching en Masse  |   App Centric Workspace   | 
+|    |   |   App Centric Workspace   | 
 |    ---    |     ---    |   ---    |
 | ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workflow-2.png)    |    ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workflow1.png)    |    ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/home.png)   |
 
@@ -111,8 +142,7 @@ Kapi authenticates itself using a `ServiceAccount` bundled in the [manifest](htt
 | --- | --- | --- | --- |
 | **Pods** | CRD | CRUD | *create cURL pods, create Docker build pods, delete for cleanup* |
 | **Deployments** | RU | CRUD | *change replica count i.e "scale"*
-| **Namespaces** | R | CRU | *for creating the initial nectar ns*
-| **Services, Events, Endpoints** | R | R |  general display, network root cause analysis, etc... |
+| **Namespaces, Services, Events, Endpoints** | R | R |  general display, network root cause analysis, etc... |
 
 You can obviously change the manifest.yaml with your custom perms, but MOSAIC will not fail gracefully it can't do things the default perms let it. You also run the risk of giving it more rights than it has now.
 
@@ -140,7 +170,7 @@ Note that this deployment gives its container root access:
               mountPath: /var/lib/docker
 ```
 
-Far from ideal, but I couldn't find another way. If you know how to get Docker running in your cluster without this, let me know (xavier@codenectar.com).
+Far from ideal, but I couldn't find another way. If you can think of another way, please start a PR.
 
 ### Backend
 
@@ -163,8 +193,6 @@ You'll see this popup quite frquently.
 
 ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/sw-update.png)
 
-[nectar-logo]: https://storage.googleapis.com/nectar-mosaic-public/images/nectar-tomato.png "Nectar"
-[mosaic-banner]: https://storage.googleapis.com/nectar-mosaic-public/images/into-the-k8set.png "Mosaic"
 
 
 # Meta
@@ -187,3 +215,11 @@ If this gets you excited, if you're feeling crazy, have some water. After that, 
 We're looking for cream of the crop engineers who want to create the new standard in container orchestration for the next decade.
 
 Frontend, backend, infra, design, VP Developer Advocacy, and CTO. London, San Francisco, or remote. Drop me a line.
+
+[nectar-logo]: https://storage.googleapis.com/nectar-mosaic-public/images/nectar-tomato.png "Nectar"
+[mosaic-banner]: https://storage.googleapis.com/nectar-mosaic-public/images/into-the-k8set.png "Mosaic"
+
+[bind-git-and-docker]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workflow-2.png
+[bulk-matching]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workflow1.png
+[decision-tree]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/net-debug.png
+[pod-timeline]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/pod-timeline.png
