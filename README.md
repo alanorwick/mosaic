@@ -233,7 +233,7 @@ because that's how we think tomorrows's systems will be built: out of other sub 
 But how can we trust the systems we integrate if they're so opaque? Our first step is to 
 bring transparency to the cloud native executables (YAML + images). MOSAIC is the first page in that chapter.
 
-
+[bulk-matching]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/bulk-matching.png
 [nectar-logo]: https://storage.googleapis.com/nectar-mosaic-public/images/nectar-tomato.png "Nectar"
 [mosaic-banner]: https://storage.googleapis.com/nectar-mosaic-public/images/into-the-k8set.png "Mosaic"
 [bind-git-and-docker]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workflow-2.png
@@ -244,7 +244,7 @@ bring transparency to the cloud native executables (YAML + images). MOSAIC is th
 [http-make-req]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/http-op.png
 [cheat-sheet]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/cheat-sheet.png
 [home]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/home.png
-[bulk-matching]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/bulk-matching.png
+
 [prepare-docker-build]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/image-op-git-1.png
 [integrations]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/integrations.png
 [workspace-edit]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workspace-edit.png
