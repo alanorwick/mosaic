@@ -90,18 +90,22 @@ is therefore organized in terms of the deployments in your cluster.
 
 ![home]
 
-### Source and Image Repos
+### GitHub and DockerHub Integration
 
 If you're a developer, you probably care about what's running inside a deployment. 
 That's why MOSAIC lets you bind any deployment in your cluster its corresponding source and image repos.
 
 ![bulk-matching]
 
-You can even tell MOSAIC to clone a repo, build an image, push it, and restart the its matching deployment.
-
 ![prepare-docker-build]
 
 This is thanks to the GitHub and DockerHub integrations MOSAIC lets you do. (Bitbucket and friends coming soon).
+
+### GitOps
+
+You can even tell MOSAIC to clone a repo, build an image, push it, and restart the its matching deployment. 
+There are no triggers, as the point is to facilitate development workflows, but this is something
+we can work on if the demand is there.
 
 ![integrations]
 
