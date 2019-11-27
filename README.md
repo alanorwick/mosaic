@@ -22,16 +22,13 @@ It is designed for intermediate-level Kubernetes users:
 
 # Installation
 
-As usual:
+Install, portforward, open:
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/nectar-cs/mosaic/master/manifest.yaml
-```
-
-Port Forward: 
-
-```shell
 kubectl port-forward svc/frontend -n nectar 9000:80 #9000 or anything else
 kubectl port-forward svc/kapi -n nectar 5000:5000 #must be 5000
+
+# in your browser, open http://localhost:9000
 ```
 
 Find out more about the permissions used [here](https://github.com/nectar-cs/mosaic/blob/master/README.md#default-permissions). All the MOSAIC resources you created with the `apply` command above are in the `nectar` namespace. 
@@ -183,8 +180,11 @@ The first step in that vision is to bring true introspection to cloud native bun
 
 ## Getting involved
 
-If this gets you excited, if you're feeling crazy, have some water. After that, drop me a line at [xavier@codenectar.com](mailto:xavier@codenectar.com) or on the K8s slack.
+### Contribute
 
+
+
+### Join Nectar
 We're looking for cream of the crop engineers who want to create the new standard in container orchestration for the next decade.
 
-Frontend, backend, infra, design, VP Developer Advocacy, and CTO. London, San Francisco, or remote. Drop me a line.
+Frontend, backend, infra, design, VP Developer Advocacy, and CTO. London, San Francisco, or remote. Drop me a line at [xavier@codenectar.com](mailto:xavier@codenectar.com).
