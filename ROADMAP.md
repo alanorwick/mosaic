@@ -69,8 +69,6 @@ Laboratory is for encoding such behavior tests.
 
 ![](https://storage.googleapis.com/nectar-mosaic-public/images/soons/experiments/experiments-1.png)
 
-![](https://storage.googleapis.com/nectar-mosaic-public/images/soons/experiments/experiments-2.png)
-
 ![](https://storage.googleapis.com/nectar-mosaic-public/images/soons/experiments/experiments-3.png)
 
 ## Regression Prevention

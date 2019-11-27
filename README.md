@@ -208,9 +208,13 @@ You'll see this popup quite frquently.
 
 # Getting involved
 
+There's a lot more work to do, starting with polishing what exists.
+
+After that, the planned big ticket items are listed in the [Roadmap](https://github.com/nectar-cs/mosaic/blob/master/ROADMAP.md).
+
 ## Contributing
 
-I'll be making a group in the slack.kubernetes. Otherwise, issues, pull requests, etc as usual. Don't hesitate to reach out for details
+I'll be making a group in kubernetes.slack. Otherwise, issues, pull requests, etc as usual. Don't hesitate to reach out for details.
 
 ## Joining Nectar
 
