@@ -59,66 +59,66 @@ has built-for-purpose wizards that diagnose the issue while showing you exactly 
 
 ![decision-tree]
 
-It also extracts information from the API to turn your attention towards likely problems.
+### Probable Cause Highlight
+
+MOSAIC also extracts information from the API to turn your attention towards likely problems.
 
 ![pod-timeline]
 
-### Visualizing 
+Even with standard visualizations, MOSAIC conveys the notion of "it should look like X".  
 
-# Resource Surfing
+![svc-overview]
+
+### Fast Testing
+
+In Kubernetes it's sometimes onerous to verify your work. This is especially
+true with networking, which is why MOSAIC has a built in HTTP tool. 
+
+![http-make-req]
+
+This creates a temporary pod with a cURL-capable container, through which a request is sent to a service of your choice.  
 
 # Workflow
 
+### Microservice-Centric Homepage 
+
+MOSAIC assumes that you think about your cluster as a collection of microservices. The homepage
+is therefore organized in terms of the deployments in your cluster. 
+
+![home]
+
+### Source and Image Repos
+
+If you're a developer, you probably care about what's running inside a deployment. 
+That's why MOSAIC lets you bind any deployment in your cluster its corresponding source and image repos.
+
+![bulk-matching]
+
+You can even tell MOSAIC to clone a repo, build an image, push it, and restart the its matching deployment.
+
+![[prepare-docker-build]]
+
+This is thanks to the GitHub and DockerHub integrations MOSAIC lets you do. (Bitbucket and friends coming soon).
+
+![integrations]
+
 #### Customizable Workspaces 
 
-|    |    |    | 
-|    ---    |     ---    |   ---    |
-| ![bind-git-and-docker]    |    ![bulk-matching]    |    ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/home.png)   |
+Unlike in most dashboards, you can create permanent workspaces that you define with white/black lists.
 
-#### App-Centric Workbench
-
-MOSAIC's world view is that one deployment ~= one microservice. During setup, it discovers your deployments and has you **bind** them to their respective **GitHub Repos** and **Docker Image Repos**. 
-
-|    |   |   App Centric Workspace   | 
-|    ---    |     ---    |   ---    |
-| ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workflow-2.png)    |    ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workflow1.png)    |    ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/home.png)   |
-
-
-
-With this in place you can point to a deployment, choose a branch/commit, and MOSAIC build an image from source, push it to your image registry, and force the right pods to pull the image (this all takes place in your cluster).
-
-|   Choose a Branch/Commit   |   Watch it build locally   |    See Git Commit   |
-|   ---   |    ---   |    ---   |
-| ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/image-op-git-1.png)    |    ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/image-op-git-2.png)    |    ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/commit.png)   |
-
-
-We think that solidifying the bond between source, container, and K8s is a powerful idea, and we'll be rolling out features that exploit the bindings more deeply.
-
-# Root Cause Analysis
-
-Understanding why something doesn't work in Kubernetes is a skill in and of itself. MOSAIC proposes a set of features to assist in uncovering the roots of problems.
-
-|  Network Debug Wizard  |  Pod Status/Event Meaning    |
-|    ---     |     ---    |
-| ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/net-debug.png)    |    ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/pod-timeline.png)   |
-
-
-
-MOSAIC also speeds up onerous tasks key to introspection such as creating one time pods to cURL your services, sending quick shell commands, force-pulling images, and checking logs. 
-
-|    HTTP Sender    |      Shell Commands    |    Image Force Pull     |
-|    ---    |    ---    |     ---    |
-| ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/http-op.png)    |    ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/cmd.png)    |    ![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/force-pull.png)   |
-
+![workspace-edit]
 
 # Education
 
-MOSAIC is *not* a 'learn K8s' tool, but it does try to make its user better at Kubernetes. We go about this by *involving* the user in every action and decision taken by the software.
+MOSAIC is *not* a 'learn K8s' tool, but it will to make you better at Kubernetes. 
 
-In the Network Debug Wizard for example, even though MOSAIC is driving the bus, tells you *why* it's running this test, and even suggests reading material at the end.
+Every action in MOSAIC features a "game plan" where it shows you a `kubectl` representation of its work.
 
-In just about every feature in MOSAIC, if there's an interaction with Kubernetes, a "Game Plan" view will show how to do this yourself with kubectl and [K8Kat](https://github.com/nectar-cs/kapi).
+![cmd]
 
+There is even a smart cheat sheet for kubectl (and soon others) where commands are interpolated to fit the current resource.
+
+![cheat-sheet]
 
 
 # What Goes Inside/Outside my Cluster?
@@ -195,7 +195,17 @@ You'll see this popup quite frquently.
 
 
 
-# Meta
+## Getting involved
+
+## Contributing
+
+I'll be making a group in the slack.kubernetes.  
+
+## Joining Nectar
+
+We're looking for cream of the crop engineers who want to create the new standard in container orchestration for the next decade.
+
+Frontend, backend, infra, design, VP Developer Advocacy, and CTO. London, San Francisco, or remote. Drop me a line.
 
 ## What *is* Nectar?
 
@@ -208,13 +218,6 @@ But how can we trust the systems we integrate if they're so opaque? Our first st
 
 Ultimately, our vision is to become the new hub, the new clearing house for cloud native executables.
 
-## Getting involved
-
-If this gets you excited, if you're feeling crazy, have some water. After that, drop me a line at [xavier@codenectar.com](mailto:xavier@codenectar.com) or on the K8s slack.
-
-We're looking for cream of the crop engineers who want to create the new standard in container orchestration for the next decade.
-
-Frontend, backend, infra, design, VP Developer Advocacy, and CTO. London, San Francisco, or remote. Drop me a line.
 
 [nectar-logo]: https://storage.googleapis.com/nectar-mosaic-public/images/nectar-tomato.png "Nectar"
 [mosaic-banner]: https://storage.googleapis.com/nectar-mosaic-public/images/into-the-k8set.png "Mosaic"
@@ -223,3 +226,12 @@ Frontend, backend, infra, design, VP Developer Advocacy, and CTO. London, San Fr
 [bulk-matching]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workflow1.png
 [decision-tree]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/net-debug.png
 [pod-timeline]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/pod-timeline.png
+[svc-overview]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/svc-overview.png
+[http-make-req]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/http-op.png
+[cheat-sheet]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/cheat-sheet.png
+[home]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/home.png
+[bulk-matching]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/bulk-matching.png
+[prepare-docker-build]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/image-op-git-1.png
+[integrations]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/integrations.png
+[workspace-edit]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workspace-edit.png
+[cmd]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/cmd.png
