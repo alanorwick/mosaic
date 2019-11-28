@@ -237,7 +237,7 @@ I'll be making a group in kubernetes.slack. Otherwise, issues, pull requests, et
 
 We're looking for cream of the crop engineers who want to create the new standard in container orchestration for the next decade.
 
-Frontend, backend, infra, design, VP Developer Advocacy, and CTO. London, San Francisco, or remote. Drop me a line.
+Frontend, backend, infra, design, VP Developer Advocacy, and CTO. London, San Francisco, or remote. Drop me a line: xavier@codenectar.com or Xavier M in kubernetes.slack.
 
 ## What *is* Nectar?
 
