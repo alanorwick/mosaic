@@ -10,46 +10,25 @@ MOSAIC complements the developer's toolkit by helping us:
 
 # Overview
 
-You interact with MOSAIC through a web app that runs in your browser. The software is made of 
+You interact with MOSAIC through a web app that runs in your browser. You must have a cluster to run MOSAIC. One step 
+[installation](https://github.com/nectar-cs/mosaic#installing) 
+detailed below. The software is made of 
 [three deployments](https://github.com/nectar-cs/mosaic#what-will-and-wont-go-inside-my-cluster) 
-that live in your Kubernetes cluster.  
-You will also be able to interact with [K8Kat](https://github.com/nectar-cs/kapi) - the brain behind MOSAIC - as a CLI. 
+that live in your Kubernetes cluster. You will also be able to interact with [K8Kat](https://github.com/nectar-cs/kapi) - the brain behind MOSAIC - as a CLI.
 
 <p align="center">
   <img src='https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/git-quickie.gif'/>
 </p>
 
-Several features are missing as this is still an alpha. The workflows MOSAIC currently assists with are:
+Several features are missing as this is still an alpha. **The workflows MOSAIC assists** with are:
 + Troubleshooting problems with resources
-+ Surfing the cluster, manually verifying and proding resources
 + GitOps - from source to image to deployment
++ Surfing the cluster, manually verifying and proding resources
 
-# Installation
-
-**Install, portforward, open**:
-```shell
-kubectl apply -f https://raw.githubusercontent.com/nectar-cs/mosaic/master/manifest.yaml
-kubectl port-forward svc/frontend -n nectar 9000:80
-kubectl port-forward svc/kapi -n nectar 5000:5000
-#visit
-http://localhost:9000
-```
-
-Read about the permissions used 
-[here](https://github.com/nectar-cs/mosaic/blob/master/README.md#default-permissions). 
-All the MOSAIC resources you created with the `apply` command above are in the `nectar` namespace. 
-
-**To uninstall** 
-
-```shell
-kubectl delete ns/nectar
-kubectl delete clusterrole/nectar-cluster-wide-role
-kubectl delete clusterrolebinding/nectar-permissions
-```
-
-Note that none of the deps use resource limits at the moment. I'm waiting for some community feedback before settling on those.
-
-Finally, keep in mind that **MOSAIC is still in alpha** so there will be bugs.   
+To clear up some misconceptions, MOSAIC **does not**:
++ Provision your cluster or add resources to it
++ Assist with root cause analysis of the apps running in your cluster
++ Give you a place to run a cluster
 
 # Root Cause Analysis
 
@@ -202,6 +181,33 @@ The backend lives OUTSIDE your cluster. It's on a Nectar-owned server. Here's wh
 
 The main reason we use a remote backend is that persistent storage on k8s is still relatively hard, 
 so dealing with data  problems on individual users' clusters would be a flustercluck of an ops nightmare.
+
+# Installing
+
+**Install, portforward, open**:
+```shell
+kubectl apply -f https://raw.githubusercontent.com/nectar-cs/mosaic/master/manifest.yaml
+kubectl port-forward svc/frontend -n nectar 9000:80
+kubectl port-forward svc/kapi -n nectar 5000:5000
+#visit
+http://localhost:9000
+```
+
+Read about the permissions used 
+[here](https://github.com/nectar-cs/mosaic/blob/master/README.md#default-permissions). 
+All the MOSAIC resources you created with the `apply` command above are in the `nectar` namespace. 
+
+**To uninstall** 
+
+```shell
+kubectl delete ns/nectar
+kubectl delete clusterrole/nectar-cluster-wide-role
+kubectl delete clusterrolebinding/nectar-permissions
+```
+
+Note that none of the deps use resource limits at the moment. I'm waiting for some community feedback before settling on those.
+
+Finally, keep in mind that **MOSAIC is still in alpha** so there will be bugs.   
 
 # Updating
 
