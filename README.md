@@ -1,30 +1,28 @@
 # MOSAIC
 
-MOSAIC is built on three beliefs:
-+ Help without explanation builds dependence, not empowerment.
-+ Memorizing the complicated is worth little; understanding the complex is worth a lot.
-+ Visualizing is organizing, representing is conveying. All good things. 
-
-![Logo][mosaic-banner]
-
-# Overview
-
 MOSAIC complements the developer's toolkit by helping us:
 + Perform root cause analysis on the many things that can go wrong in a cluster
 + Logically structure the the web of K8s resources, to make it surfable
 + Automate repetitive or un-memorizable `kubectl/git/docker` chores
 + Understand the *how* and *why*s in Kubernetes without pausing the game
 
-<p align="center">
-  <img src='https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/git-quickie.gif'/>
-</p>
+![Logo][mosaic-banner]
+
+# Overview
 
 You interact with MOSAIC through a web app that runs in your browser. The software is made of 
 [three deployments](https://github.com/nectar-cs/mosaic#what-will-and-wont-go-inside-my-cluster) 
 that live in your Kubernetes cluster.  
 You will also be able to interact with [K8Kat](https://github.com/nectar-cs/kapi) - the brain behind MOSAIC - as a CLI. 
 
-Note that several features are missing as this is still an alpha.   
+<p align="center">
+  <img src='https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/git-quickie.gif'/>
+</p>
+
+Several features are missing as this is still an alpha. The workflows MOSAIC currently assists with are:
++ Troubleshooting problems with resources
++ Surfing the cluster, manually verifying and proding resources
++ GitOps - from source to image to deployment
 
 # Installation
 
@@ -159,10 +157,10 @@ in the manifest (as you always should when putting foreign software in your clus
 | --- | --- | --- | --- |
 | **Pods** | CRD | CRUD | *create cURL pods, create Docker build pods, delete for cleanup* |
 | **Deployments** | RU | CRUD | *change replica count i.e "scale"*
-| **Namespaces, Services, Events, Endpoints** | R | R |  general display, network root cause analysis, etc... |
+| **Namespaces, Services, Events, Endpoints** | R | R |  introspection, root cause analysis, etc... |
 
-You can obviously change the manifest.yaml with your custom perms, but MOSAIC will not fail 
-gracefully it can't do things the default perms let it. You also run the risk of giving it more rights than it has now.
+You can customize the manifest.yaml's perms, but Kapi will fail 
+if it can't do the things it expects to.
 
 
 ### Docker inside Docker
@@ -170,7 +168,7 @@ gracefully it can't do things the default perms let it. You also run the risk of
 MOSAIC wraps the [official Docker image](https://hub.docker.com/_/docker) inside a deployment. 
 This is used to build images from your applications' source code (see above). 
 
-If you want to get rid of this to cut costs, the easiest way is to scale it down through MOSAIC's GUI. Equivalently, with kubectl:
+To get rid of this, scale it down through MOSAIC's GUI or with kubectl:
 
 ```bash
 kubectl scale deploy dind --replicas=0 -n nectar
@@ -189,7 +187,7 @@ Note that this deployment gives its container root access:
               mountPath: /var/lib/docker
 ```
 
-Far from ideal, but I couldn't find another way. If you can think of another way, please start a PR.
+Far from ideal, but that's the best I found. If you know a better way, ping me or start a PR.
 
 ### Backend
 
@@ -207,11 +205,11 @@ so dealing with data  problems on individual users' clusters would be a flusterc
 
 # Updating
 
-MOSAIC has a built-in self-update mechanism. When an update is available, a popup will show that lets you one-click update.
+MOSAIC has a built-in self-update mechanism. When an update is available, a popup will show that lets you one-click update:
 
-You'll see this popup quite frquently.
+![sw-update]
 
-![](https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/sw-update.png)
+You need to **stop/start your port-forward** ~15 seconds after clicking Update.
 
 
 # Getting involved
@@ -219,6 +217,11 @@ You'll see this popup quite frquently.
 There's a lot more work to do, starting with polishing what exists.
 
 After that, the planned big ticket items are listed in the [Roadmap](https://github.com/nectar-cs/mosaic/blob/master/ROADMAP.md).
+
+MOSAIC is built on three beliefs:
++ Help without explanation builds dependence, not empowerment.
++ Memorizing the complicated is worth little; understanding the complex is worth a lot.
++ Visualizing is organizing, representing is conveying. All good things. 
 
 ## Contributing
 
@@ -258,3 +261,4 @@ bring transparency to the cloud native executables (YAML + images). MOSAIC is th
 [integrations]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/integrations.png
 [workspace-edit]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/workspace-edit.png
 [cmd]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/cmd.png
+[sw-update]: https://storage.googleapis.com/nectar-mosaic-public/images/pub-site/sw-update.png
